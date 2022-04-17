@@ -54,3 +54,4 @@ Y tambien debo importar la clase User...
 15.2) Una categoria puede estar en varios posteos, y un post puede estar en varias categorias (many to many)
 > categorias = models.ManyToManyField(Categoria)
 15.3) Luego tenemos que registrar todo en admin.py (para que nos aparezca en el menu admin)
+15.4) Una vez terminado de trabajar con admin, repito los cambios análogo a services

@@ -1,6 +1,8 @@
 from django.shortcuts import render
+from blog.models import Post
 
 def blog(request):
 
-    return render(request,'blog/blog.html',{})
+    posteos = Post.objects.all()  
+    return render(request,'blog/blog.html',{'posteos':posteos})
 
