@@ -1,0 +1,39 @@
+{% extends 'main_page.html' %}
+
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+{% block content %}
+<body style="color: azure;">
+    {% for servicio in servicios %}
+
+
+    <section class="page-section clearfix">
+        <div class="container">
+          <div class="intro">
+            <img class="intro-img img-fluid mb-3 mb-lg-0 rounded" src="{{servicio.imagen.url}}" alt="" style="width: 50%;">
+            <div class="intro-text left-0 text-center bg-faded p-5 rounded">
+              <h2 class="section-heading mb-4" >
+                <span class="section-heading-lower">{{servicio.titulo}}</span>
+                <span class="section-heading-upper">{{servicio.contenido}}</span>
+              </h2>
+                           
+            </div>
+          </div>
+        </div>
+      </section>
+   
+
+    {% endfor %}
+
+</body>
+{% endblock %}
+
+
+</html>

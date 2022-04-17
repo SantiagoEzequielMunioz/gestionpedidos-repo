@@ -1,0 +1,56 @@
+Curso: Pildorasinformaticas
+
+1) Creado proyecto, venv y app. Agregada app a settings. (12/04)
+2) Crear carpeta templates/base, crear urls en app
+2.1) Ruteo de urls de proyecto a urls de app con include
+3) Hacer esqueleto main_page de html...
+3.1) Menú conformado por: Home-Servicios-Tienda-Blog-Contacto
+3.2) main_homepage.html es padre del proyecto. homepage es la pag principal de la app.
+IMPORTANTE! añadir el directorio de los templates desde settings.py (ver comentario)
+4) Cargar las pestañas HOME-SERVICES-SHOP-BLOG-CONTACT
+5) Hacer las views de (3)
+6) Hacer las urls
+7) Crear carpeta 'static' en la app, luego dentro crear carpeta de la app, y ahi puedo poner img, css, bootstrap, etc.
+Ejemplo: C:\Users\Santi\Desktop\Python\Django\ProyectoWeb\SitioWeb\main\static\main\css
+7.1) IMPORTANTE! añadir en settings la linea: STATICFILES_DIRS = [			para que django sepa donde buscar (linea 123)
+   						 BASE_DIR / 'main/static',]
+7.2) Los html que usen esta carpeta con archivos img o css poner el tag {% load static %}
+8) Vamos a hacer una app nueva que se encargará de los servicios del sitio. Creamos la app.
+8.1) Agregamos la app a SETTINGS
+9) Preparamos el archivo models.py con la db y sus campos
+10) Creamos la DB en postgresql
+10.1) Modificamos el archivo SETTINGS, en DATABASES
+11) Ahora voy a usar el admin para controlar el acceso de usuarios a la nueva app
+11.1) Debo registrar en servicios/admin.py la app Servicio (la clase que creé en models). Primero importo la clase Servicio
+>from .models import Servicio
+11.2) Para agregar los campos created y updated, debo agregar una clase en admin (class ServicioAdmin(admin.ModelAdmin))
+11.3) Luego registro todo
+>admin.site.register(Servicio, ServicioAdmin)
+12) Desde admin cuando cargo un servicio y tengo que cargar una imagen surge lo siguiente:
+-Crear una ruta adecuada para donde alojar esas imagenes
+-Modificar los archivos settings.py, models.py y urls.py (main)
+12.1) Crear carpeta 'media' en el directorio del proyecto en general (SitioWeb padre)
+12.2) En settings agregar las siguientes líneas:
+> MEDIA_URL = '/media/'
+> MEDIA_ROOT = BASE_DIR / 'media'
+12.3) Agregar en urls.py:
+> from django.conf import settings
+> from django.conf.urls.static import static
+> urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
+12.4) Modificar en models.py lo siguiente:
+> imagen = models.ImageField(upload_to='servicios')
+13) En el archivo views.py vista services, agrego la variable servicios = Servicio.objects.all() e importo from Servicios.models import Servicio
+Esto es para que me tome todos los objetos de servicios que tenga almacenados. Además lo agrego al context del render.
+13.1) En services.html creo un for para que recorra todos los servicios y los renderize la vista.
+Usando la variable creada en el context de views, puedo ingresar a sus propiedades del models.py (ya que lo importé en views)
+13.2) Para cargar la variable {{servicio.imagen}} en el bucle for debo añadir '.url' -->{{servicio.imagen.url}}
+14) Cambiar el template services.html de la carpeta main a la carpeta Servicios(app), y tener en cuenta todos los archivos que debo modificar (urls,views)
+15) Voy a seguir creando la app blog, ya que es mas simple, parecido al procedimiento de (8)
+15.1) Establecemos relaciones; si un usuario es eliminado, todos sus posteos son eliminados. (one to many)
+Por eso en la var autor de la clase Post() colocamos la siguiente instruccion:
+> autor = models.ForeignKey(User, on_delete=models.CASCADE)
+Y tambien debo importar la clase User...
+> from django.contrib.auth.models import User
+15.2) Una categoria puede estar en varios posteos, y un post puede estar en varias categorias (many to many)
+> categorias = models.ManyToManyField(Categoria)
+15.3) Luego tenemos que registrar todo en admin.py (para que nos aparezca en el menu admin)
