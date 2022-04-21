@@ -260,6 +260,7 @@ a.link{
   color: rgba(255, 255, 255, 0.7);
 }
 
+
 a.link:hover{
   text-decoration: none;
   color: rgba(255, 255, 255, 0.4);
@@ -276,4 +277,13 @@ ul.errorlist{
   padding-top: .75rem;
   font-style: italic;
   color: red;
+}
+
+.categorias {
+  color: white !important;
+  text-decoration: underline;
+}
+
+.categorias:hover {
+  color: grey !important;
 }

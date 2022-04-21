@@ -7,5 +7,3 @@ def homepage(request):
 def shop(request):
     return render(request,'base/shop.html',{})
 
-def contact(request):
-    return render(request,'base/contact.html',{})

@@ -38,8 +38,7 @@
     {% for post in posteos %}
       {% for categoria in post.categorias.all %}
 
-        <!-- esta es la notación para ir a la url entre '' y se agrega de esta forma el parametro solicitado -->
-        <a class="categorias" href="{% url 'categoria' categoria.id %}">{{categoria.nombre}}</a> &nbsp;&nbsp;&nbsp;
+        {{categoria.nombre}} &nbsp;&nbsp;&nbsp;
         
       {% endfor %}
     {% endfor %}
