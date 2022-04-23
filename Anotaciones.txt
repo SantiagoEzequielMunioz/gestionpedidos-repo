@@ -55,3 +55,16 @@ Y tambien debo importar la clase User...
 > categorias = models.ManyToManyField(Categoria)
 15.3) Luego tenemos que registrar todo en admin.py (para que nos aparezca en el menu admin)
 15.4) Una vez terminado de trabajar con admin, repito los cambios análogo a services
+16) Creo la app contacto, para lo cual como trabajo con forms debo crear ese archivo.
+16.1) Importo forms y armo una clase para un formulario. Las variables son los campos.
+16.2) Trabajo en views de la app agregando como funcion la creacion del objeto form
+16.3) En views es donde voy a manipular la informacion que tome del formulario
+16.4) Lo ubico fisicamente en un .html con tag form y method="POST" (no olvidar el csrf_token si es POST)
+16.5) Uso redirect para enviar un parametro al .html (el param. puede tener cualquier nombre, en este caso ?valido)
+17) Se usa la clase EmailMessage para el envío automático. Importante: agregar la configuracion en settings
+17.1) Si el form .is_valid() guardamos en variables para crear un objeto EmailMessage. Devuelve ?valido
+17.2) El objeto lo meto en un try/except y uso el metodo send(). Except me devuelve una url ?no-valido
+17.3) Configurar en seguridad de la cuenta de gmail para que me tome los mails
+18) Crear app Tienda, configurar todas las views, url y settings.
+18.1) Crear los models. Analizar el tipo de relacion entre clases (ManyToMany | ForeignKey). Recordar que va del producto a la seccion
+18.2) Registrarlos en admin

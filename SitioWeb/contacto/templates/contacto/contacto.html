@@ -11,10 +11,19 @@
 </head>
 {% block content %}
 
-<div>
-    <p style="color: white;">
-        {{miform}}
-    </p>
+<div class="container_form">
+
+    {% if 'valido' in request.GET %}
+
+        <p>CONTESTAREMOS A LA BREVEDAD!</p>
+
+    {% endif %}
+
+    <form action="" method="POST">
+    {% csrf_token %}
+    <table class="table-form">{{miform.as_table}}</table>
+    <input class='form-submit' type="submit" value="Enviar">
+    </form>
 </div>
 
 {% endblock %}

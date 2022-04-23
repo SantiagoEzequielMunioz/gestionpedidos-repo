@@ -287,3 +287,27 @@ ul.errorlist{
 .categorias:hover {
   color: grey !important;
 }
+
+.container_form {
+  background-color: rgba(24, 64, 8);
+  width: 30%;
+  margin: 3rem auto;
+  min-width:max-content;
+  padding: 1rem;
+  border-radius: 15px;
+  text-align: center; /*se tiene que poner en el div esto, no en el boton sino no funciona*/
+  color: white;
+}
+
+.table-form {
+  color: white;
+  margin: auto;
+  padding: 3rem;
+}
+
+.form-submit {
+  margin: 2rem 1rem auto;
+  font-family: 'Raleway';
+  font-weight: bold;
+  width: 5rem;
+}
