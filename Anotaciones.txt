@@ -68,3 +68,17 @@ Y tambien debo importar la clase User...
 18) Crear app Tienda, configurar todas las views, url y settings.
 18.1) Crear los models. Analizar el tipo de relacion entre clases (ManyToMany | ForeignKey). Recordar que va del producto a la seccion
 18.2) Registrarlos en admin
+19) Creo la app carrito para la compra de productos. No va a estar en los templates.
+19.1) Creo un nuevo archivo carrito.py donde voy a crear la clase Carro para manejar los carritos de cada individuo como objetos
+19.2) Cuando un usuario agrega algo a un carro, se deben igualar las sesiones entre usuario y carro:
+>> class Carro:
+     def __init__(self,request):
+        self.request = request
+        # hay que igualar las sesiones
+        self.session = request.session
+        carro = self.session.get('carro')
+20) Revisar archivo carrito.py --> tiene anotaciones
+21) Luego preparo las views y uso los metodos de carrito.py (VER CODIGO)
+22) Para hacer el total hay que crear una variable global (context processor) en la cual voy sumando los items al carrito y no se pierde
+mientras navego por las diferentes secciones del sitio.
+22.1) Debo registrarlo en settings y crear su archivo.py en la carpeta del carrito (Ver codigo)

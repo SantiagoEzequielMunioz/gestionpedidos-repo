@@ -1,4 +1,8 @@
 from django.shortcuts import render
+from .models import Producto
 
 def shop(request):
-    return render(request,'shop/shop.html',{})
+    
+    productos = Producto.objects.all()
+
+    return render(request,'shop/shop.html',{'productos':productos})

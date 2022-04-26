@@ -311,3 +311,10 @@ ul.errorlist{
   font-weight: bold;
   width: 5rem;
 }
+
+.producto {
+  color: white !important;
+  font-weight: bold !important;
+  font-family:'Arial';
+  display: block;
+}
