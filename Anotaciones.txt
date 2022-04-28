@@ -82,3 +82,4 @@ Y tambien debo importar la clase User...
 22) Para hacer el total hay que crear una variable global (context processor) en la cual voy sumando los items al carrito y no se pierde
 mientras navego por las diferentes secciones del sitio.
 22.1) Debo registrarlo en settings y crear su archivo.py en la carpeta del carrito (Ver codigo)
+23) Creo un nuevo template (widget.html) en una nueva carpeta (carrito) dentro de shop/templates
