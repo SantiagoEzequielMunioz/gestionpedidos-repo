@@ -29,7 +29,7 @@ def restar_producto(request,producto_id):
     carro = Carro(request)
     prod=Producto.objects.get(id=producto_id)
     
-    carro.restar(producto=prod)
+    carro.restar_producto(producto=prod)
 
     return redirect('shop')
 

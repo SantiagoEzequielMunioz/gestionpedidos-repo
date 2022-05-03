@@ -22,7 +22,13 @@
                 <tr class="text-center">
                     <td>{{value.nombre}}</td>
                     <td>{{value.cantidad}}</td>
-                    <td></td>
+                    <td>
+                        <!-- botones -->
+                        <a href="{% url 'carrito:agregar' value.producto_id %}" class="btn btn-sm btn-success">+</a>
+                        <a href="{% url 'carrito:restar' value.producto_id %}" class="btn btn-sm btn-success">-</a><br>
+
+                        {{value.precio}}
+                    </td>
                 </tr>
 
             {% endfor %}
@@ -39,7 +45,13 @@
 
 
     </tbody>
-
+    <tfoot>
+        <tr>
+            <td colspan="3">
+                Total: $ {{importe_total_carro}}
+            </td>
+        </tr>
+    </tfoot>
 
 
 </table>
