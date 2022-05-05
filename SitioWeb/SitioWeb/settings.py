@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/4.0/ref/settings/
 
 from pathlib import Path
 
+from django.contrib.messages import constants as mensajes_error
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -153,3 +155,11 @@ EMAIL_HOST_USER='xxxxx@gmail.com'
 EMAIL_HOST_PASSWORD='xxxxx'
 
 CRISPY_TEMPLATE_PACK='bootstrap4'
+
+MESSAGE_TAGS = {
+    mensajes_error.DEBUG: 'debug',
+    mensajes_error.INFO: 'info',
+    mensajes_error.SUCCESS: 'success',
+    mensajes_error.WARNING: 'warning',
+    mensajes_error.ERROR: 'cualquiera',
+}

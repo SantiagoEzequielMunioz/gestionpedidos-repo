@@ -83,3 +83,10 @@ Y tambien debo importar la clase User...
 mientras navego por las diferentes secciones del sitio.
 22.1) Debo registrarlo en settings y crear su archivo.py en la carpeta del carrito (Ver codigo)
 23) Creo un nuevo template (widget.html) en una nueva carpeta (carrito) dentro de shop/templates
+24) Creo una variable global para mantener la sesion del user en funcionamiento, que se llame context_processor.py (agregar a settings)
+
+cleaned_data is the cleaned data from the form which is used for string formatting
+
+25)
+26)
+27) Configuro el settings para agregar los mensajes de error (MESSAGE_TAGS)
